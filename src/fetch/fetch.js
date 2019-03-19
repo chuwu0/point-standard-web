@@ -12,10 +12,10 @@ const instance = axios.create({
 
 instance.interceptors.request.use(config => {
     // 在发送请求之前做些什么，比如传token
-    //const token = localStorage.getItem('token');
-    //if(token){
-    //config.headers.Authorization =  token;
-    //}
+    const token = localStorage.getItem('token');
+    if (token) {
+        config.headers.Authorization = token;
+    }
     //config.data = JSON.stringify(config.data);
     return config
 }, error => {
@@ -26,7 +26,7 @@ instance.interceptors.request.use(config => {
 // 添加相应拦截器
 instance.interceptors.response.use(response => {
     //对相应的数据做处理
-    const res = response.data;
+    const res = response;
     return res;
 }, error => {
     console.error(error)

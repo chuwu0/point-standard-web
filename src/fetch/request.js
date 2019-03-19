@@ -17,12 +17,13 @@ function successResponse(response, success, failed) {
 }
 
 function errorResponse(response, err) {
-    let json = JSON.stringify(response)
-    json = JSON.parse(json)
-    if (err) {
-        Message.error({ message: '接口：' + json.config.url + '请求错误' })
+    let json = JSON.stringify(err),
+        lastData = JSON.parse(json)
+    console.log(err)
+    if (lastData.hasOwnProperty('config')) {
+        Message.error({ message: '接口：' + lastData.config.url + '请求错误' })
     } else {
-        Message.error({ message: '请求错误' });
+        Message.error({ message: '请求错误:' + err });
     }
 }
 
@@ -33,12 +34,12 @@ function errorResponse(response, err) {
  * @param data
  * @returns {Promise}
  */
-function post(url, data = {}, success) {
+export function post(url, data = {}, success) {
     instance.post(url, data).then(response => {
         //对接口错误码做处理
         successResponse(response, success)
     }, err => {
-        errorResponse(response, err)
+        errorResponse({}, err)
     })
 }
 
@@ -49,7 +50,7 @@ function post(url, data = {}, success) {
  * @param data
  * @returns {Promise}
  */
-function get(url, data = {}, success) {
+export function get(url, data = {}, success) {
     instance.get(url, {
             params: data
         })
@@ -57,7 +58,7 @@ function get(url, data = {}, success) {
             successResponse(response, success)
         })
         .catch(err => {
-            errorResponse(response, err)
+            errorResponse({}, err)
         })
 }
 
@@ -69,7 +70,7 @@ function get(url, data = {}, success) {
  * @param headers
  * @returns {Promise}
  */
-function request(methed, url, data = {}, headers, success) {
+export function request(methed, url, data = {}, headers, success) {
     instance({
             method: methed || 'post',
             url: url,
@@ -84,5 +85,3 @@ function request(methed, url, data = {}, headers, success) {
             errorResponse(response, err)
         })
 }
-
-export default {get, post, request }

@@ -1,20 +1,20 @@
 <template>
-    <div class="saga_container">
-        <div class="saga_error404page">
-            <div class="saga_newcharacter404">
-                <div class="saga_chair404"></div>
-                <div class="saga_leftshoe404"></div>
-                <div class="saga_rightshoe404"></div>
-                <div class="saga_legs404"></div>
-                <div class="saga_torso404">
-                    <div class="saga_body404"></div>
-                    <div class="saga_leftarm404"></div>
-                    <div class="saga_rightarm404"></div>
-                    <div class="saga_head404">
-                        <div class="saga_eyes404"></div>
+    <div class="saga-container">
+        <div class="saga-error404page">
+            <div class="saga-newcharacter404">
+                <div class="saga-chair404"></div>
+                <div class="saga-leftshoe404"></div>
+                <div class="saga-rightshoe404"></div>
+                <div class="saga-legs404"></div>
+                <div class="saga-torso404">
+                    <div class="saga-body404"></div>
+                    <div class="saga-leftarm404"></div>
+                    <div class="saga-rightarm404"></div>
+                    <div class="saga-head404">
+                        <div class="saga-eyes404"></div>
                     </div>
                 </div>
-                <div class="saga_laptop404"></div>
+                <div class="saga-laptop404"></div>
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@
     }
 </script>
 <style lang="scss">
-    .saga_container {
+    .saga-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -41,7 +41,7 @@
         background-color: white;
         overflow: hidden;
     }
-    .saga_error404page {
+    .saga-error404page {
         width: 400px;
         height: 800px;
         position: absolute;
@@ -49,37 +49,37 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
-    .saga_body404,
-    .saga_head404,
-    .saga_eyes404,
-    .saga_leftarm404,
-    .saga_rightarm404,
-    .saga_chair404,
-    .saga_leftshoe404,
-    .saga_rightshoe404,
-    .saga_legs404,
-    .saga_laptop404 {
+    .saga-body404,
+    .saga-head404,
+    .saga-eyes404,
+    .saga-leftarm404,
+    .saga-rightarm404,
+    .saga-chair404,
+    .saga-leftshoe404,
+    .saga-rightshoe404,
+    .saga-legs404,
+    .saga-laptop404 {
         background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/15979/404-character-new.png) 0 0 no-repeat;
         width: 200px;
         height: 200px;
     }
-    .saga_newcharacter404,
-    .saga_torso404,
-    .saga_body404,
-    .saga_head404,
-    .saga_eyes404,
-    .saga_leftarm404,
-    .saga_rightarm404,
-    .saga_chair404,
-    .saga_leftshoe404,
-    .saga_rightshoe404,
-    .saga_legs404,
-    .saga_laptop404 {
+    .saga-newcharacter404,
+    .saga-torso404,
+    .saga-body404,
+    .saga-head404,
+    .saga-eyes404,
+    .saga-leftarm404,
+    .saga-rightarm404,
+    .saga-chair404,
+    .saga-leftshoe404,
+    .saga-rightshoe404,
+    .saga-legs404,
+    .saga-laptop404 {
         background-size: 750px;
         position: absolute;
         display: block;
     }
-    .saga_newcharacter404 {
+    .saga-newcharacter404 {
         width: 400px;
         height: 800px;
         left: 50%;
@@ -87,7 +87,7 @@
         margin-left: -200px;
     }
     $swayspeed: 20s;
-    .saga_torso404 {
+    .saga-torso404 {
         position: absolute;
         display: block;
         top: 138px;
@@ -97,7 +97,7 @@
         animation: sway $swayspeed ease infinite;
         transform-origin: 50% 100%;
     }
-    .saga_body404 {
+    .saga-body404 {
         position: absolute;
         display: block;
         top: 0px;
@@ -105,7 +105,7 @@
         width: 389px;
         height: 253px;
     }
-    .saga_head404 {
+    .saga-head404 {
         position: absolute;
         top: -148px;
         left: 106px;
@@ -115,7 +115,7 @@
         transform-origin: 50% 85%;
         animation: headTilt $swayspeed ease infinite;
     }
-    .saga_eyes404 {
+    .saga-eyes404 {
         position: absolute;
         top: 92px;
         left: 34px;
@@ -124,7 +124,7 @@
         background-position: -162px -350px;
         animation: blink404 10s steps(1) infinite, pan 10s ease-in-out infinite;
     }
-    .saga_leftarm404 {
+    .saga-leftarm404 {
         position: absolute;
         top: 159px;
         left: 0;
@@ -135,7 +135,7 @@
         transform: rotateZ(0deg);
         animation: typeLeft 0.4s linear infinite;
     }
-    .saga_rightarm404 {
+    .saga-rightarm404 {
         position: absolute;
         top: 148px;
         left: 231px;
@@ -145,7 +145,7 @@
         transform-origin: 90% 25%;
         animation: typeLeft 0.4s linear infinite;
     }
-    .saga_chair404 {
+    .saga-chair404 {
         position: absolute;
         top: 430px;
         left: 55px;
@@ -153,7 +153,7 @@
         height: 365px;
         background-position: -12px -697px;
     }
-    .saga_legs404 {
+    .saga-legs404 {
         position: absolute;
         top: 378px;
         left: 4px;
@@ -161,7 +161,7 @@
         height: 247px;
         background-position: -381px -443px;
     }
-    .saga_leftshoe404 {
+    .saga-leftshoe404 {
         position: absolute;
         top: 591px;
         left: 54px;
@@ -169,7 +169,7 @@
         height: 92px;
         background-position: -315px -749px;
     }
-    .saga_rightshoe404 {
+    .saga-rightshoe404 {
         position: absolute;
         top: 594px;
         left: 187px;
@@ -179,7 +179,7 @@
         transform-origin: 35% 12%;
         animation: tapRight 1s linear infinite;
     }
-    .saga_laptop404 {
+    .saga-laptop404 {
         position: absolute;
         top: 186px;
         left: 9px;

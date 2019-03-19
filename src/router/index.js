@@ -1,37 +1,81 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './../views/Home.vue'
-import notFind from "./../views/404"
+import Home from 'views/Home.vue'
+// import configPoint from 'views/config_point'
+// import notFind from "views/404"
+// import editOrigin from "views/config_point/edit_origin"
+// import layout from "views/layout/layout"
 
+const configPoint = () =>
+    import ("views/config_point")
+const notFind = () =>
+    import ("views/404")
+const editOrigin = () =>
+    import ("views/config_point/edit_origin")
+const layout = () =>
+    import ("views/layout/layout")
+const steps = () =>
+    import ("views/config_point/steps")
 Vue.use(Router)
 
 export default new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [{
-            path: '/',
-            name: 'home',
-            component: Home
-        },
-        {
-            path: '/notFind',
+            path: '*',
             name: 'notFind',
             component: notFind
         },
         {
-            path: '/about',
-            name: 'about',
-            // route level code-splitting
-            // this generates a separate chunk (about.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            component: () =>
-                import ('./../views/About.vue')
-        },
-        {
-            path: '/login',
-            name: 'login',
-            component: () =>
-                import ('./../views/login')
+            path: "/configPoint",
+            name: "",
+            meta: {
+                title: "点位配置"
+            },
+            component: layout,
+            children: [{
+                    path: "/",
+                    name: "configPoint",
+                    meta: {
+                        title: "点位配置"
+                    },
+                    component: configPoint,
+                },
+                {
+                    path: "editOrigin",
+                    name: "editOrigin",
+                    component: editOrigin,
+                    meta: {
+                        breadShow: true,
+                        title: "数据源",
+                        type: "edit",
+                        breadArr: [{
+                            path: "/configPoint",
+                            name: "点位配置"
+                        }, {
+                            path: "/configPoint/editOrigin",
+                            name: "数据源"
+                        }]
+                    }
+                },
+                {
+                    path: "steps",
+                    name: "steps",
+                    component: steps,
+                    meta: {
+                        breadShow: true,
+                        title: "点位表维护",
+                        type: "edit",
+                        breadArr: [{
+                            path: "/configPoint",
+                            name: "数据源管理"
+                        }, {
+                            path: "/configPoint/steps",
+                            name: "点位表维护"
+                        }]
+                    }
+                }
+            ]
         },
     ]
 })
